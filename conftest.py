@@ -13,7 +13,7 @@ def pytest_addoption(parser):
                      help='Choose browser: chrome (by default) or firefox')
 
 #   в условном операторе объявляем разные Options и webdriver для каждого браузера
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='function')
 def browser(request):
     browser_name = request.config.getoption('--browser_name')
     user_language = request.config.getoption('--language')
