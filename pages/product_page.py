@@ -8,15 +8,18 @@ class ProductPage(BasePage):
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), 'Нет кнопки "Добавить в корзину"'
     def add_to_basket(self):
-        basket_button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
-        basket_button.click()
+        add_to_basket = self.find_element_by_CSS(*ProductPageLocators.BASKET_BUTTON)
+        add_to_basket.click()
 
-    def should_be_first_allert(self):
-        assert BasePage.is_alert_present(self), 'Первый Алерт не обнаружен'
+    def should_be_first_alert(self):
+        assert self.is_alert_present(), 'Первый Алерт не обнаружен'
 
     def should_be_answer_for_promo_quiz(self):
         self.solve_quiz_and_get_code()
 
+    def adding_to_basket(self):
+        self.should_be_add_to_basket_button()
+        self.add_to_basket()
 
     #   проверяем наличие и корректность фидбека на странице после добавления товара в корзину
     def should_be_basket_message(self):
@@ -32,15 +35,20 @@ class ProductPage(BasePage):
         in_message = self.get_text_of_element(*ProductPageLocators.ADDED_TO_BASKET_PRICE)
         assert on_page == in_message
 
-
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADDED_TO_BASKET_NAME), \
+        'Ошибочно выведено сообщение о добавлении в корзину'
+    def should_succes_message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.ADDED_TO_BASKET_NAME), \
+        'Сообщение об успешном добавлении в корзину не исчезло'
 
 
     #   переходим в корзину
     def should_be_basket_button(self):
-        assert self.is_element_present(*BasketPageLocators.BASKET_BUTTON), 'Кнопка с корзиной не найдена'
+        assert self.is_element_present(*BasketPageLocators.SHOW_BASKET_BUTTON), 'Кнопка с корзиной не найдена'
 
     def go_to_basket(self):
-        basket_button = self.browser.find_element(*BasketPageLocators.BASKET_BUTTON)
+        basket_button = self.browser.find_element(*BasketPageLocators.SHOW_BASKET_BUTTON)
         basket_button.click()
 
 

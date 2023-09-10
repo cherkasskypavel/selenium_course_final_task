@@ -12,6 +12,7 @@ class LinksToTest():
                                                marks=pytest.mark.xfail),
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
+    LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#registration_link')
 
@@ -30,6 +31,6 @@ class ProductPageLocators():
 
 #   в процессе реализации :)
 class BasketPageLocators():
-    BASKET_BUTTON = (By.CSS_SELECTOR, '.basket-mini.pull-right.hidden-xs a.btn')
+    SHOW_BASKET_BUTTON = (By.CSS_SELECTOR, '.basket-mini.pull-right.hidden-xs a.btn')
     PRODUCT_NAME = (By.CSS_SELECTOR,) # Добавить селектор
     PRODUCT_PRICE = (By.CSS_SELECTOR,) # Добавить селектор
