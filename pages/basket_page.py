@@ -7,11 +7,9 @@ class BasketPage(BasePage):
 
     def should_be_basket_page(self):
         assert '/basket/' in self.browser.current_url, 'Страница с корзиной не открылась'
-    def get_product_name_on_basket_page(self):
-        text = self.get_text_of_element(*BasketPageLocators.PRODUCT_NAME)
-        return text
-    def get_product_price_on_basket_page(self):
-        text = self.get_text_of_element(*BasketPageLocators.PRODUCT_PRICE)
-        return text
+
+    def should_be_nothing_in_basket(self):
+        assert self.is_not_element_present(*BasketPageLocators.NOT_EMPTY_ELEM)
+
 
 # проверить, совпадают ли названия товаров на странице с товаром и в корзине

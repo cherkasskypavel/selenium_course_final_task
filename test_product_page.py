@@ -6,6 +6,7 @@ import math
 from selenium.common.exceptions import NoAlertPresentException
 import time
 from .pages.locators import LinksToTest
+from .pages.basket_page import BasketPage
 
 @pytest.mark.skip
 def test_quest_can_add_product_to_basket(browser):
@@ -54,3 +55,14 @@ def test_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = LinksToTest.MAIN_PAGE_LINK
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_basket()
+    next_page = BasketPage(browser, url=browser.current_url)
+    next_page.should_be_basket_page()   #   проверяем, открылась ли страница с корзиной, по URL
+    next_page.should_be_nothing_in_basket() #   проверяем пустоту корзины через отсуствие формы
+                                            #   c добавленными товарами
+

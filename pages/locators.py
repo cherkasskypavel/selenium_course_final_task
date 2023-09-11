@@ -13,7 +13,7 @@ class LinksToTest():
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
     LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
-
+    MAIN_PAGE_LINK = 'https://selenium1py.pythonanywhere.com/'
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
@@ -32,9 +32,6 @@ class ProductPageLocators():
     ADDED_TO_BASKET_PRICE = (By.CSS_SELECTOR, '#messages .alert-info:nth-child(3) strong')
 
 
-
-#   в процессе реализации :)
 class BasketPageLocators():
     SHOW_BASKET_BUTTON = (By.CSS_SELECTOR, '.basket-mini.pull-right.hidden-xs a.btn')
-    PRODUCT_NAME = (By.CSS_SELECTOR,) # Добавить селектор
-    PRODUCT_PRICE = (By.CSS_SELECTOR,) # Добавить селектор
+    NOT_EMPTY_ELEM = (By.CSS_SELECTOR, '#basket_formset')
