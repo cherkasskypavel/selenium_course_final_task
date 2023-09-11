@@ -13,6 +13,10 @@ class LinksToTest():
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
     LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#registration_link')
 
