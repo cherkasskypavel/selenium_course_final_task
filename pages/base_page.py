@@ -61,7 +61,7 @@ class BasePage():
             return False
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link isn`t presented'
@@ -70,3 +70,7 @@ class BasePage():
         basket_button = WebDriverWait(
             self.browser, timeout).until(EC.presence_of_element_located(BasketPageLocators.SHOW_BASKET_BUTTON))
         basket_button.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
