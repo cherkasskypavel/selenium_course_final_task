@@ -28,7 +28,7 @@ class LoginPageLocators():
     REGISTRATION_BUTTON = (By.CSS_SELECTOR, 'button[name="registration_submit"]')
     TEST_PASSWORD = '123456789abcABC'
 class ProductPageLocators():
-    BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
+    BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')     # <------ исправить на ADD_TO_BASKET
     PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
     PRODUCT_PRICE = (By.CSS_SELECTOR, 'p.price_color')
     ADDED_TO_BASKET_NAME = (By.CSS_SELECTOR, '#messages .alert-success:nth-child(1) strong')

@@ -29,15 +29,15 @@ class BasePage():
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
-        x = alert.text.split(" ")[2]
-        answer = str(math.log(abs((12 * math.sin(float(x))))))
-        print(answer)
+        x = alert.text.split(" ")[2]                            # из первого алерта вытаскиваем переменную
+        answer = str(math.log(abs((12 * math.sin(float(x))))))  #   подставляем в функцию
+        print(answer)                                           #   выводим ответ в консоль на всякий случай (-s)
         alert.send_keys(answer)
-        alert.accept()
+        alert.accept()                                          #   отправляем результат в поле ввода
         try:
-            alert = self.browser.switch_to.alert
-            alert_text = alert.text
-            print(f"Your code: {alert_text}")
+            alert = self.browser.switch_to.alert                #   выводим ответ из второго алерта в консоль,
+            alert_text = alert.text                             #   если алерта не последовало, перехватываем
+            print(f"Your code: {alert_text}")                   #   исключение
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
