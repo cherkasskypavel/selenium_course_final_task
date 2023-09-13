@@ -28,6 +28,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = LinksToTest.LINK
         page = ProductPage(browser, link)
@@ -65,7 +66,8 @@ def test_guest_should_see_login_link_on_product_page(browser):
 
 @pytest.mark.skip
 @pytest.mark.xfail(reason='forcibly failed by using invalid link in locators.py')
-def test_can_go_to_login_page_from_product_page(browser):
+@pytest.mark.need_review
+def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
@@ -73,6 +75,7 @@ def test_can_go_to_login_page_from_product_page(browser):
 
 
 @pytest.mark.skip
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = LinksToTest.MAIN_PAGE_LINK
     page = ProductPage(browser, link)
@@ -83,3 +86,12 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     next_page.should_be_nothing_in_basket() #   проверяем пустоту корзины через отсуствие формы
                                             #   c добавленными товарами
 
+@pytest.mark.need_review
+def test_guest_can_add_product_to_basket(browser):
+    link = LinksToTest.LINK
+    page = ProductPage(browser, link)
+    page.open()
+    page.adding_to_basket()
+    page.should_be_basket_message()
+    page.is_page_and_message_product_name_equal()
+    page.is_page_and_message_product_price_equal()
