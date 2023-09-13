@@ -1,7 +1,7 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
-class LoginPage(BasePage()):
+class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
@@ -18,11 +18,14 @@ class LoginPage(BasePage()):
 
     def register_new_user(self, email, password):
         email_input = self.find_element_by_CSS(*LoginPageLocators.REGISTER_EMAIL)
-        password_input = self.find_element_by_CSS(*LoginPageLocators.REGISTER_PASSWORD1)
-        repeat_password = self.find_element_by_CSS(*LoginPageLocators.REGISTER_PASSWORD2)
-        registration_button = self.find_element_by_CSS(*LoginPageLocators.REGISTRATION_BUTTON)
-
         email_input.send_keys(email)
+        password_input = self.find_element_by_CSS(*LoginPageLocators.REGISTER_PASSWORD1)
         password_input.send_keys(password)
+        repeat_password = self.find_element_by_CSS(*LoginPageLocators.REGISTER_PASSWORD2)
         repeat_password.send_keys(password)
+        registration_button = self.find_element_by_CSS(*LoginPageLocators.REGISTRATION_BUTTON)
         registration_button.click()
+
+
+
+
