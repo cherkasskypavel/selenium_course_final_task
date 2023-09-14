@@ -11,7 +11,7 @@ class TestUserAddToBasketFromProductPage():
 
     @pytest.fixture(scope='function', autouse=True)
     def setup(self, browser):
-        link = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
+        link = LinksToTest.LOGIN_PAGE_LINK
         email = str(time.time()) + "@fakemail.org"
         page = LoginPage(browser, link)
         page.open()
