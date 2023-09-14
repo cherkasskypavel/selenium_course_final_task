@@ -12,8 +12,7 @@ class LinksToTest():
                                                marks=pytest.mark.xfail),
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
-    LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
-    MAIN_PAGE_LINK = 'https://selenium1py.pythonanywhere.com/'
+    LINK = 'https://selenium1py.pythonanywhere.com/'
     LOGIN_PAGE_LINK = 'http://selenium1py.pythonanywhere.com/accounts/login/'
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
