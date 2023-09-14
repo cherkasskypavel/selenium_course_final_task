@@ -20,15 +20,15 @@ def browser(request):
     if browser_name == 'chrome':
         options = Chrome_Options()
         options.add_experimental_option('prefs', {"intl.accept_languages": user_language})
-        print('\nоткрываем хром\n')
+        print(f'\nоткрываем {browser_name}\n')
         browser = webdriver.Chrome(options=options)
     elif browser_name == 'firefox':
         options = Firefox_Options()
         options.set_preference("intl.accept_languages", user_language)
-        print('\nоткрываем файерфокс\n')
+        print(f'\nоткрываем {browser_name}\n')
         browser = webdriver.Firefox(options=options)
     else:
         raise pytest.UsageError('--browser_name should be chrome or firefox')
     yield browser
-    print('\nзакрываем браузер\n')
+    print(f'\nзакрываем {browser_name}\n')
     browser.close()

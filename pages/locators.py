@@ -15,7 +15,7 @@ class LinksToTest():
     LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
     MAIN_PAGE_LINK = 'https://selenium1py.pythonanywhere.com/'
 class BasePageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#registration_link")
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, '.icon-user')
 
@@ -28,7 +28,7 @@ class LoginPageLocators():
     REGISTRATION_BUTTON = (By.CSS_SELECTOR, 'button[name="registration_submit"]')
     TEST_PASSWORD = '123456789abcABC'
 class ProductPageLocators():
-    BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')     # <------ исправить на ADD_TO_BASKET
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, '#add_to_basket_form button')
     PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
     PRODUCT_PRICE = (By.CSS_SELECTOR, 'p.price_color')
     ADDED_TO_BASKET_NAME = (By.CSS_SELECTOR, '#messages .alert-success:nth-child(1) strong')

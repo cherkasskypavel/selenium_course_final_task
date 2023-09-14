@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
+from selenium.common.exceptions import NoAlertPresentException, TimeoutException
 import math
 from selenium.webdriver.support.ui import WebDriverWait
 import selenium.webdriver.support.expected_conditions as EC
@@ -16,7 +16,7 @@ class BasePage():
         except:
             return False
         return True
-    def find_element_by_CSS(self, how, what, timeout=4):
+    def find_element_by_CSS(self, how, what, timeout=6):
         element = WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         return element
 
@@ -61,7 +61,7 @@ class BasePage():
             return False
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
         login_link.click()
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link isn`t presented'

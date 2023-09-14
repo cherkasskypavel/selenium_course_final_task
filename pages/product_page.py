@@ -1,14 +1,13 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
-from .locators import ProductPageLocators, BasketPageLocators
+from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 
     #   добавляем товар в корзину, решаем загадку для получения скидки
     def should_be_add_to_basket_button(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), 'Нет кнопки "Добавить в корзину"'
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), 'Нет кнопки "Добавить в корзину"'
     def add_to_basket(self):
-        add_to_basket = self.find_element_by_CSS(*ProductPageLocators.BASKET_BUTTON)
+        add_to_basket = self.find_element_by_CSS(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         add_to_basket.click()
 
     def should_be_first_alert(self):
