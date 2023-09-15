@@ -81,5 +81,10 @@ def test_guest_can_add_product_to_basket(browser):
     page.is_page_and_message_product_name_equal()
     page.is_page_and_message_product_price_equal()
 
+def test_guest_cant_see_success_message(browser):
+    page = ProductPage(browser, link_coders)
+    page.open()
+    page.should_not_be_success_message()
+
 if __name__ == '__main__':
     pytest.main()
