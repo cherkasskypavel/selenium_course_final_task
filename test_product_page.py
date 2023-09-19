@@ -1,13 +1,14 @@
 import pytest
 from .pages.product_page import ProductPage
 import time
-from .pages.locators import LinksToTest, LoginPageLocators
+from .pages.locators import LinksToTest
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 
 link_coders = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
 link_stars = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
 main_page_link = LinksToTest.LINK
+test_password = '123456789abcABC'
 class TestUserAddToBasketFromProductPage():
 
 
@@ -17,7 +18,7 @@ class TestUserAddToBasketFromProductPage():
         email = str(time.time()) + "@fakemail.org"
         page = LoginPage(browser, login_link)
         page.open()
-        page.register_new_user(email, LoginPageLocators.TEST_PASSWORD)
+        page.register_new_user(email, test_password)
         page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
@@ -55,7 +56,6 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
-@pytest.mark.xfail(reason='forcibly failed by using invalid link in locators.py')
 @pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link_stars)
